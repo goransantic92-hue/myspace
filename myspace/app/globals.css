@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+@custom-variant lm (@media (orientation: landscape) and (max-height: 500px) and (max-width: 1023px));
+
+@theme inline {
+  --font-sans: var(--font-familjen-grotesk);
+  --font-serif: var(--font-instrument-serif);
+  --default-font-family: var(--font-familjen-grotesk);
+}
+
+:root {
+  --background: #fff;
+  --foreground: #171717;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 1rem;
+}
+
+section[id] {
+  scroll-margin-top: 20px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-familjen-grotesk), sans-serif;
+}
+
+[data-reveal-01] {
+  visibility: hidden;
+}
+[data-reveal-01] > * {
+  margin-bottom: -0.18em;
+}
+[data-reveal-01] .word-mask,
+[data-reveal-01] .char-mask {
+  vertical-align: top;
+}
+[data-reveal-01] .line-mask,
+[data-reveal-01] .word-mask,
+[data-reveal-01] .char-mask {
+  overflow-clip-margin: 0.06em;
+  overflow: clip;
+}
+[data-reveal-01] .line-mask > *,
+[data-reveal-01] .word-mask > *,
+[data-reveal-01] .char-mask > * {
+  will-change: transform;
+  padding-bottom: 0.18em;
+}
+
+.ap-transition-heading .char-mask {
+  overflow-clip-margin: 0.06em;
+  vertical-align: top;
+  display: inline-block;
+  overflow: clip;
+}
+.ap-transition-heading .char-mask > * {
+  will-change: transform;
+  padding-bottom: 0.18em;
+  display: inline-block;
+}
+
+[data-hover-reveal] {
+  vertical-align: top;
+  cursor: pointer;
+  display: inline-block;
+}
+.hover-reveal-track {
+  line-height: inherit;
+  display: grid;
+  overflow: hidden;
+}
+.hover-reveal-line {
+  white-space: pre;
+  grid-area: 1/1;
+  display: block;
+}
+.hover-reveal-char {
+  will-change: transform;
+  display: inline-block;
+}
+
+.rotate-device-warning {
+  display: none;
+}
+@media screen and (max-width: 1024px) and (orientation: portrait) {
+  .rotate-device-warning {
+    z-index: 999;
+    color: #fff;
+    text-align: center;
+    background-color: #0f0f0f;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    display: flex;
+    position: fixed;
+    inset: 0;
+  }
+}
