@@ -148,7 +148,7 @@ function Loader({ children }) {
         <div className="w-full">
           <div className="flex items-end justify-between px-2">
             <span className="font-sans text-[clamp(1.5rem,2.5vw,2.75rem)] font-medium leading-none tracking-[-0.055em]">
-              <Logo />
+              <Logo className="h-14 w-auto md:h-[4.5rem]" />
             </span>
             <span className="shrink-0 font-sans text-[clamp(1.75rem,2.8vw,3rem)] font-medium leading-none tracking-[-0.05em] tabular-nums">
               {String(percent).padStart(2, "0")}

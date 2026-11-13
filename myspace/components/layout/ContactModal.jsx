@@ -239,7 +239,7 @@ export default function ContactModal({ open, onClose }) {
       <div className="cx-content relative mx-auto flex h-full w-full max-w-[1280px] flex-col px-5 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4 md:px-10 md:pb-6 [@media(orientation:landscape)_and_(max-height:500px)]:h-auto [@media(orientation:landscape)_and_(max-height:500px)]:min-h-full [@media(orientation:landscape)_and_(max-height:500px)]:pt-2 [@media(orientation:landscape)_and_(max-height:500px)]:pb-[max(0.5rem,env(safe-area-inset-bottom))] [@media(orientation:landscape)_and_(max-height:500px)]:pl-[max(1.25rem,env(safe-area-inset-left))] [@media(orientation:landscape)_and_(max-height:500px)]:pr-[max(1.25rem,env(safe-area-inset-right))]">
         <div className="flex items-center justify-between">
           <span className="cx-fade text-lg font-medium leading-none">
-            <Logo />
+            <Logo className="h-10 w-auto" />
           </span>
           <div className="cx-fade flex items-center gap-3">
             <kbd className="hidden rounded-md border border-[#EDE6D6]/25 px-1.5 py-1 font-sans text-[10px] font-medium leading-none text-[#EDE6D6]/50 md:block">

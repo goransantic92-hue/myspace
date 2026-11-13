@@ -100,7 +100,7 @@ export default function Footer() {
           <div className="flex items-start justify-between gap-8 text-xs uppercase tracking-[0.12em] md:text-sm lm:text-xs">
             <div className="overflow-hidden">
               <Link href="/" aria-label={`${BRAND_TITLE} home`} className="footer-reveal block text-lg md:text-xl lm:text-base">
-                <Logo />
+                <Logo className="h-12 w-auto md:h-16 lm:h-10" />
               </Link>
             </div>
             <div className="hidden overflow-hidden md:block">

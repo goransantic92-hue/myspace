@@ -91,16 +91,20 @@ export default function Hero() {
         </div>
 
         <div
-          className="hero-meta pointer-events-none absolute bottom-[13%] left-0 right-0 px-6 md:px-10 lg:inset-0 lg:flex lg:items-center lg:px-10 lm:bottom-14"
+          className="hero-meta pointer-events-none absolute bottom-[13%] left-0 right-0 lg:inset-0 lg:flex lg:items-center lm:bottom-14"
         >
-          <div
-            className="hero-meta-inner grid w-full grid-cols-2 gap-x-6 gap-y-1 md:flex md:items-end md:justify-between md:gap-0 lg:flex lg:items-end lg:justify-between lm:flex lm:items-end lm:justify-between lm:gap-0"
-          >
-            {["Architecture", "Planning", "Engineering", "Dubai"].map(
-              (label) => (
-                <Meta key={label}>{label}</Meta>
-              ),
-            )}
+          <div className="hero-meta-inner relative w-full">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -inset-y-4 inset-x-0 bg-black/25 backdrop-blur-md [mask-image:linear-gradient(to_bottom,transparent,#000_28%,#000_72%,transparent)]"
+            />
+            <div className="relative z-10 grid w-full grid-cols-2 gap-x-6 gap-y-1 px-6 md:flex md:items-end md:justify-between md:gap-0 md:px-10 lg:flex lg:items-end lg:justify-between lg:px-10 lm:flex lm:items-end lm:justify-between lm:gap-0">
+              {["Architecture", "Planning", "Engineering", "Dubai"].map(
+                (label) => (
+                  <Meta key={label}>{label}</Meta>
+                ),
+              )}
+            </div>
           </div>
         </div>
 
