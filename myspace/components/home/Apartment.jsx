@@ -102,6 +102,7 @@ export default function Apartment() {
       const imgs = gsap.utils.toArray(".ap-img", root);
       const inners = gsap.utils.toArray(".ap-img-inner", root);
       const heroPieces = gsap.utils.toArray(".ap-hero-piece", root);
+      const heroScrim = root.querySelector(".ap-hero-scrim");
       const texts = gsap.utils
         .toArray(".ap-text", root)
         .map((el) => gsap.utils.toArray(".ap-piece", el));
@@ -134,6 +135,7 @@ export default function Apartment() {
           imgs.forEach((el, i) => gsap.set(el, { ...toCss(slot(i, 0)), zIndex: COUNT - i }));
           gsap.set(inners, { scale: (i) => (i === 0 ? 1 : 1.2) });
           gsap.set(heroPieces, { yPercent: 110, opacity: 0 });
+          gsap.set(heroScrim, { opacity: 0 });
           texts.forEach((pieces) => gsap.set(pieces, { yPercent: 110, opacity: 0 }));
           gsap.set(label, { opacity: 0 });
 
@@ -181,6 +183,12 @@ export default function Apartment() {
             },
             0,
           );
+          tl.fromTo(
+            heroScrim,
+            { opacity: 0 },
+            { opacity: 1, duration: 0.8, ease: "power3.out", immediateRender: false },
+            0,
+          );
           tl.addLabel("s0", 1);
 
           for (let step = 1; step <= COUNT; step++) {
@@ -211,6 +219,7 @@ export default function Apartment() {
             }
 
             if (first) {
+              tl.to(heroScrim, { opacity: 0, duration: 0.35, ease: "power2.in" }, at);
               tl.fromTo(
                 heroPieces,
                 { yPercent: 0, opacity: 1 },
@@ -300,6 +309,11 @@ export default function Apartment() {
             </div>
           ))}
 
+          <div
+            aria-hidden="true"
+            className="ap-hero-scrim pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[48%] bg-gradient-to-t from-black/60 via-black/30 to-transparent"
+          />
+
           <div className="absolute inset-x-0 bottom-0 z-20 flex flex-col gap-4 p-6 text-white md:p-8 lg:gap-5 lg:p-12 lm:gap-2 lm:p-6">
             <Mask>
               <p className="ap-hero-piece text-[10px] uppercase tracking-[0.2em]">A private residence</p>
@@ -317,12 +331,12 @@ export default function Apartment() {
             {ROOMS.map((room) => (
               <div
                 key={room.eyebrow}
-                className="ap-text absolute inset-0 flex flex-col justify-center gap-3 lg:gap-5 lm:gap-2"
+                className="ap-text absolute inset-0 flex flex-col justify-center gap-4 lg:gap-6 lm:gap-3"
               >
                 <Mask>
-                  <p className="ap-piece text-[10px] uppercase tracking-[0.2em]">{room.eyebrow}</p>
+                  <p className="ap-piece text-xs uppercase tracking-[0.16em] lg:text-sm">{room.eyebrow}</p>
                 </Mask>
-                <h2 className="font-sans text-[clamp(1.75rem,6.5vw,2.75rem)] leading-[0.98] tracking-[-0.04em] lg:text-[2.8vw] lm:text-[2.8vw]">
+                <h2 className="font-sans text-[clamp(2.15rem,7.5vw,3.4rem)] leading-[0.96] tracking-[-0.04em] lg:text-[3.6vw] lm:text-[3.2vw]">
                   {room.lines.map((line) => (
                     <Mask key={line}>
                       <span className="ap-piece block">{line}</span>
@@ -330,12 +344,12 @@ export default function Apartment() {
                   ))}
                 </h2>
                 <Mask>
-                  <p className="ap-piece max-w-[24rem] text-xs leading-[1.5] tracking-[-0.01em] md:text-sm lm:text-[11px] lm:leading-[1.4]">
+                  <p className="ap-piece max-w-[26rem] text-base leading-[1.45] tracking-[-0.01em] lg:text-lg lm:text-sm lm:leading-[1.4]">
                     {room.copy}
                   </p>
                 </Mask>
                 <Mask>
-                  <p className="ap-piece text-[10px] uppercase leading-[1.6] tracking-[0.16em] opacity-70 lm:text-[9px]">
+                  <p className="ap-piece text-xs uppercase leading-[1.5] tracking-[0.14em] opacity-70 lg:text-sm lm:text-[11px]">
                     {room.details}
                   </p>
                 </Mask>

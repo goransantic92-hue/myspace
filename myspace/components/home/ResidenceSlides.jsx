@@ -202,7 +202,7 @@ export default function ResidenceSlides() {
                     <span className={counterDot}>{pad(i + 1)}</span>
                     <span className={`${counterDot} opacity-40`}>{pad(SLIDES.length)}</span>
                   </div>
-                  <p className="rs-copy max-w-[22rem] text-xs leading-[1.4] tracking-[-0.01em] md:text-base lm:max-w-[14rem] lm:text-[10px]">
+                  <p className="rs-copy max-w-[44rem] text-2xl leading-[1.4] tracking-[-0.01em] md:text-[2rem] lm:max-w-[28rem] lm:text-[20px]">
                     {slide.copy}
                   </p>
                 </div>
