@@ -155,13 +155,13 @@ export default function TourCta({ href = "/tour" }) {
         >
           <img
             src="/assets/images/apartment-tour.webp"
-            alt="Residence 02 at golden hour, the living room glowing behind tall glass doors"
+            alt="A private residence at golden hour, the living room glowing behind tall glass doors"
             className="tour-inner h-full w-full object-cover will-change-transform"
           />
           <div className="absolute top-8 inset-0 flex flex-col justify-between p-6 md:p-10">
             <div className="flex items-start justify-between gap-6">
               <Mask>
-                <p className="tour-piece text-xs uppercase tracking-[0.2em]">Explore Residence 02</p>
+                <p className="tour-piece text-xs uppercase tracking-[0.2em]">Private residence · 3D walkthrough</p>
               </Mask>
               <div className="hidden lg:block">
                 <Mask>
@@ -195,8 +195,8 @@ export default function TourCta({ href = "/tour" }) {
                     data-reveal-01
                     className="tour-piece text-xs leading-[1.5] tracking-[-0.01em] md:text-sm"
                   >
-                    Move beyond the photograph and experience the apartment from within. Explore its
-                    rooms, discover the details, and find your own way through the space.
+                    This is how a client could walk through a house before it is built. Explore the
+                    rooms, open the doors, and find your own way through the space.
                   </p>
                 </Mask>
                 <div className="relative">
@@ -206,7 +206,7 @@ export default function TourCta({ href = "/tour" }) {
                     onClick={enter}
                     className="tour-fade inline-block rounded-full border border-white/70 px-6 py-3 text-[11px] uppercase tracking-[0.18em] transition-colors duration-300 hover:bg-white hover:text-[#2A2725] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
                   >
-                    Enter Residence 02 →
+                    Enter the residence →
                   </a>
                   <span
                     aria-hidden="true"

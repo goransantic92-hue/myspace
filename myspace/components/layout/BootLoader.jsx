@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import gsap from "gsap";
-import { BRAND } from "@/lib/brand";
+import Logo from "./Logo";
 
 const ASSETS = [
   { type: "image", src: "/assets/images/hero5.webp", weight: 1 },
@@ -148,7 +148,7 @@ function Loader({ children }) {
         <div className="w-full">
           <div className="flex items-end justify-between px-2">
             <span className="font-sans text-[clamp(1.5rem,2.5vw,2.75rem)] font-medium leading-none tracking-[-0.055em]">
-              {BRAND}
+              <Logo />
             </span>
             <span className="shrink-0 font-sans text-[clamp(1.75rem,2.8vw,3rem)] font-medium leading-none tracking-[-0.05em] tabular-nums">
               {String(percent).padStart(2, "0")}

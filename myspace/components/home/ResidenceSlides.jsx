@@ -4,7 +4,6 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { BRAND_TITLE } from "@/lib/brand";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -13,17 +12,25 @@ const SLIDES = [
     bg: "#2A2725",
     fg: "#FFFFFF",
     imageSide: "right",
-    lines: ["A study in", "form, light", "and proportion."],
-    copy: "A residence shaped around natural light, considered proportions, and the quiet relationship between architecture and living.",
-    image: { src: "/assets/images/side.webp", alt: `${BRAND_TITLE} private residence` },
+    lines: ["Light,", "before", "anything else."],
+    copy: "Dubai private residences. Orientation, openings and shade, considered from the first sketch, so a house stays bright without holding the heat.",
+    image: { src: "/assets/images/side.webp", alt: "Residence facade in daylight" },
   },
   {
     bg: "#ffffff",
     fg: "#2A2725",
     imageSide: "left",
-    lines: ["Rooms that", "hold the", "evening light."],
-    copy: "Deep windows and honest materials let each day end slowly, with warm light settling into every room.",
+    lines: ["Material,", "chosen within", "the budget."],
+    copy: "Creativity with adherence to established budgets. Materials chosen for how they feel, how they age, and what they cost.",
     image: { src: "/assets/images/nightSide.webp", alt: "Warmly lit interior" },
+  },
+  {
+    bg: "#2A2725",
+    fg: "#FFFFFF",
+    imageSide: "right",
+    lines: ["A plan", "for every", "stage."],
+    copy: "Architecture, planning and engineering consultancy, carried through each stage of the design process.",
+    image: { src: "/assets/images/top.webp", alt: "Residence seen from above" },
   },
 ];
 

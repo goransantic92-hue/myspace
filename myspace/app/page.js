@@ -4,7 +4,6 @@ import MarqueeTransition from "@/components/home/MarqueeTransition";
 import ResidenceSlides from "@/components/home/ResidenceSlides";
 import ApartmentTransition from "@/components/home/ApartmentTransition";
 import Apartment from "@/components/home/Apartment";
-import TourCta from "@/components/home/TourCta";
 import Footer from "@/components/home/Footer";
 
 export default function Home() {
@@ -16,7 +15,6 @@ export default function Home() {
       <ResidenceSlides />
       <ApartmentTransition />
       <Apartment />
-      <TourCta />
       <Footer />
     </main>
   );

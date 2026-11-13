@@ -3,7 +3,15 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import gsap from "gsap";
-import { BRAND, CONTACT_EMAIL, SOCIAL_LINKS } from "@/lib/brand";
+import {
+  ADDRESS,
+  CONTACT_EMAIL,
+  CONTACT_PHONE,
+  ENQUIRY_SUBJECT,
+  SOCIAL_LINKS,
+  telHref,
+} from "@/lib/brand";
+import Logo from "./Logo";
 import {
   ArrowUpRightIcon,
   CheckIcon,
@@ -13,18 +21,18 @@ import {
 
 const INQUIRIES = [
   {
-    key: "stay",
-    label: "Stays",
-    title: "Plan your stay",
-    note: "Dates, guests, questions",
-    subject: "Stay enquiry",
+    key: "architecture",
+    label: "Architecture",
+    title: "Start a project",
+    note: "Site, brief, budget",
+    subject: ENQUIRY_SUBJECT,
   },
   {
-    key: "residence",
-    label: "Residences",
-    title: "Arrange a private viewing",
-    note: "Visits and availability",
-    subject: "Private viewing request",
+    key: "consultancy",
+    label: "Planning & engineering",
+    title: "Ask about consultancy",
+    note: "Scope and questions",
+    subject: ENQUIRY_SUBJECT,
   },
 ];
 
@@ -230,7 +238,9 @@ export default function ContactModal({ open, onClose }) {
       />
       <div className="cx-content relative mx-auto flex h-full w-full max-w-[1280px] flex-col px-5 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4 md:px-10 md:pb-6 [@media(orientation:landscape)_and_(max-height:500px)]:h-auto [@media(orientation:landscape)_and_(max-height:500px)]:min-h-full [@media(orientation:landscape)_and_(max-height:500px)]:pt-2 [@media(orientation:landscape)_and_(max-height:500px)]:pb-[max(0.5rem,env(safe-area-inset-bottom))] [@media(orientation:landscape)_and_(max-height:500px)]:pl-[max(1.25rem,env(safe-area-inset-left))] [@media(orientation:landscape)_and_(max-height:500px)]:pr-[max(1.25rem,env(safe-area-inset-right))]">
         <div className="flex items-center justify-between">
-          <span className="cx-fade text-lg font-medium leading-none">{BRAND}</span>
+          <span className="cx-fade text-lg font-medium leading-none">
+            <Logo />
+          </span>
           <div className="cx-fade flex items-center gap-3">
             <kbd className="hidden rounded-md border border-[#EDE6D6]/25 px-1.5 py-1 font-sans text-[10px] font-medium leading-none text-[#EDE6D6]/50 md:block">
               Esc
@@ -261,19 +271,26 @@ export default function ContactModal({ open, onClose }) {
                 aria-hidden="true"
                 className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#9ED8A8]"
               />
-              Now taking bookings
+              Architectural consultancy, Dubai
             </div>
             <h2 className="mt-4 font-serif text-[clamp(2rem,min(5.4vw,8.5vh),4.5rem)] leading-[1] tracking-[-0.03em] [@media(orientation:landscape)_and_(max-height:500px)]:mt-2 [@media(orientation:landscape)_and_(max-height:500px)]:text-[clamp(1.5rem,9vh,2.25rem)]">
               <span className="block overflow-hidden pb-[0.1em]">
-                <span className="cx-mask block">The tour is virtual.</span>
+                <span className="cx-mask block">Tell us about</span>
               </span>
               <span className="block overflow-hidden pb-[0.1em] text-[#EDE6D6]/50">
-                <span className="cx-mask block">The space is real.</span>
+                <span className="cx-mask block">your project.</span>
               </span>
             </h2>
             <p className="cx-fade mt-4 max-w-md text-sm leading-relaxed text-[#EDE6D6]/65 md:text-[15px] [@media(orientation:landscape)_and_(max-height:500px)]:hidden">
-              A stay to plan, a residence to visit, or a question about the
-              space? Say hello.
+              A residence to design, a site to plan, or a question about
+              engineering? Write to us, or call{" "}
+              <a
+                href={telHref(CONTACT_PHONE)}
+                className="whitespace-nowrap underline decoration-[#EDE6D6]/30 underline-offset-4 transition-colors hover:text-[#EDE6D6]"
+              >
+                {CONTACT_PHONE}
+              </a>
+              .
             </p>
             <div className="cx-fade mt-5 flex max-w-full items-center justify-between gap-2 rounded-full border border-[#EDE6D6]/25 bg-[#EDE6D6]/[0.04] p-1.5 pl-5 sm:inline-flex sm:gap-6 [@media(orientation:landscape)_and_(max-height:500px)]:mt-3">
               <a
@@ -313,7 +330,7 @@ export default function ContactModal({ open, onClose }) {
               ))}
             </ul>
             <span className="cx-fade hidden text-xs text-[#EDE6D6]/45 sm:block">
-              Space, considered.
+              {ADDRESS}
             </span>
           </div>
         </div>

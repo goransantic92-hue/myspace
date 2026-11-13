@@ -91,7 +91,7 @@ export default function ApartmentTransition() {
       <div className="sticky top-0 z-40 flex h-[100svh] w-full items-center justify-center px-6 lg:h-screen">
         <div className="ap-transition-copy flex flex-col items-center text-center opacity-0">
           <p className="mb-4 text-[10px] uppercase tracking-[0.24em] lg:mb-5 lg:text-xs">
-            Residence 02
+            A private residence
           </p>
           <h2
             data-reveal-01

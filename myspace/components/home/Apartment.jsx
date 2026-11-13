@@ -8,7 +8,7 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-const HERO_LINES = ["A different", "way to stay."];
+const HERO_LINES = ["A home,", "room by room."];
 const SEP = " · ";
 
 const ROOMS = [
@@ -20,7 +20,7 @@ const ROOMS = [
     },
     eyebrow: "The living area",
     lines: ["Everything", "within reach."],
-    copy: "A considered space for everyday living. Thoughtfully arranged rooms, warm materials, and the essentials for a comfortable stay.",
+    copy: "A considered space for everyday living. Thoughtfully arranged rooms, warm materials, and room for the way a household actually lives.",
     details: ["Two bedrooms", "Living area", "Kitchen", "Bathroom"].join(SEP),
   },
   {
@@ -302,7 +302,7 @@ export default function Apartment() {
 
           <div className="absolute inset-x-0 bottom-0 z-20 flex flex-col gap-4 p-6 text-white md:p-8 lg:gap-5 lg:p-12 lm:gap-2 lm:p-6">
             <Mask>
-              <p className="ap-hero-piece text-[10px] uppercase tracking-[0.2em]">Residence 02</p>
+              <p className="ap-hero-piece text-[10px] uppercase tracking-[0.2em]">A private residence</p>
             </Mask>
             <h2 className="font-sans text-[clamp(2.75rem,12vw,5.5rem)] leading-[0.92] tracking-[-0.05em] lg:text-[7vw] lm:text-[7vw]">
               {HERO_LINES.map((line) => (
@@ -344,7 +344,7 @@ export default function Apartment() {
           </div>
 
           <div className="ap-label absolute bottom-[3.4%] left-[2.6%] z-20 hidden items-center gap-4 text-[11px] uppercase tracking-[0.18em] lg:flex lm:flex">
-            <span>Inside the apartment</span>
+            <span>Inside the residence</span>
             <span className="flex items-center gap-1 tabular-nums">
               <span className="block h-[1.4em] overflow-hidden leading-[1.4em]">
                 <span className="ap-count-col flex flex-col">

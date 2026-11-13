@@ -254,7 +254,7 @@ export default function VillaExplorer({
           <div className="min-w-0 pr-10 lg:pr-0" role="status" aria-live="polite">
             <div className="mb-3 flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-white/70">
               <span className="h-px w-6 bg-white/60" />
-              <span>Structure</span>
+              <span>Private residence</span>
             </div>
             <div className="overflow-hidden pb-[0.15em]">
               <h3

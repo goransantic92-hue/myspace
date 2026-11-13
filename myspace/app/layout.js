@@ -4,7 +4,7 @@ import SmoothScroll from "@/components/layout/SmoothScroll";
 import Nav from "@/components/layout/Nav";
 import BootLoader from "@/components/layout/BootLoader";
 import TextReveal from "@/components/layout/TextReveal";
-import { BRAND, SITE_URL } from "@/lib/brand";
+import { BRAND, SITE_DESCRIPTION, SITE_TITLE, SITE_URL, TAGLINE } from "@/lib/brand";
 
 const familjen = Familjen_Grotesk({
   subsets: ["latin"],
@@ -21,12 +21,13 @@ const instrument = Instrument_Serif({
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
-  title: `${BRAND} — Contemporary Architecture & Residences`,
-  description: `Discover ${BRAND}, a study in contemporary residential architecture, considered spaces, material, and light. Explore the residences through immersive 3D experiences.`,
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
   alternates: { canonical: "/" },
+  robots: { index: false, follow: false },
   openGraph: {
-    title: `${BRAND} — Space, considered.`,
-    description: "Residences shaped by architecture, light, and material.",
+    title: SITE_TITLE,
+    description: TAGLINE,
     url: "/",
     siteName: BRAND,
     locale: "en_US",
@@ -34,8 +35,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${BRAND} — Space, considered.`,
-    description: "Residences shaped by architecture, light, and material.",
+    title: SITE_TITLE,
+    description: TAGLINE,
   },
 };
 

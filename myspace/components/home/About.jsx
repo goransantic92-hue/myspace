@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { BRAND } from "@/lib/brand";
+import { BRAND_FULL } from "@/lib/brand";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -22,7 +22,7 @@ const IMAGES = [
 ];
 
 const WORDS =
-  "We create residences where architecture, light, and material come together to shape a quieter way of living.".split(
+  "We are involved in each stage of the design process. We create projects that are beautiful, environmentally sensitive and cost efficient.".split(
     " ",
   );
 
@@ -337,7 +337,7 @@ export default function About() {
             data-scroll
             className="about-tile absolute inset-x-0 top-[12%] px-6 text-center font-serif text-3xl leading-tight opacity-0 lg:inset-x-auto lg:left-[26%] lg:top-[0%] lg:w-[20%] lg:px-0 lg:text-[3.5vw] lm:top-[13%] lm:text-2xl"
           >
-            A quieter way to live
+            Each stage of the design
           </p>
           {TILES.map((tile, i) => (
             <div
@@ -378,9 +378,9 @@ export default function About() {
               </p>
               <div className="about-rule mt-4 h-px w-full bg-[#2A2725] lg:mt-6 lm:mt-3" />
               <p className="about-supporting-copy mt-4 max-w-[350px] text-sm leading-[1.35] tracking-[-0.01em] opacity-0 lg:mt-6 lg:text-lg lm:mt-2 lm:max-w-[420px] lm:text-xs">
-                {BRAND} is a contemporary residential experience shaped around
-                considered spaces, natural light, honest materials, and the
-                feeling of living within them.
+                {BRAND_FULL} provides a full range of architectural and
+                planning services, with the highest degree of professionalism,
+                creativity and adherence to established budgets.
               </p>
             </div>
           </div>
@@ -394,7 +394,7 @@ export default function About() {
             <img
               key={i}
               src={src}
-              alt={`${BRAND} interior ${i + 1}`}
+              alt={`Residential interior ${i + 1}`}
               className="about-slide absolute inset-0 h-full w-full object-cover"
             />
           ))}

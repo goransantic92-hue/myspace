@@ -4,7 +4,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { DeviceRotateIcon } from "@/components/layout/icons";
-import { BRAND } from "@/lib/brand";
+import Logo from "@/components/layout/Logo";
 
 gsap.registerPlugin(useGSAP);
 
@@ -39,7 +39,9 @@ export default function RotateWarning() {
       role="alert"
     >
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-      <div className="relative px-6 pt-[max(1.5rem,env(safe-area-inset-top))] text-lg tracking-tight">{BRAND}</div>
+      <div className="relative px-6 pt-[max(1.5rem,env(safe-area-inset-top))] text-lg tracking-tight">
+        <Logo />
+      </div>
       <div className="relative flex flex-1 flex-col items-center justify-center px-8 text-center">
         <div className="lock-badge relative mb-10 flex h-24 w-24 items-center justify-center">
           <span className="lock-ring absolute inset-0 rounded-full bg-white/40" />

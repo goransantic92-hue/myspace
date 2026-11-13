@@ -1,9 +1,10 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { BRAND } from "@/lib/brand";
+import ContactModal from "@/components/layout/ContactModal";
+import { BRAND, TAGLINE } from "@/lib/brand";
 
 gsap.registerPlugin(useGSAP);
 
@@ -27,10 +28,11 @@ function Meta({ children }) {
   );
 }
 
-function HeroLink({ href, children, className = "" }) {
+function HeroLink({ href, children, className = "", onClick }) {
   return (
     <a
       href={href}
+      onClick={onClick}
       className={`group flex items-center gap-3 py-1.5 text-sm uppercase md:text-base lg:py-0 lg:text-lg lm:text-xs ${className}`}
     >
       <span data-hover-reveal className="border-b border-white">
@@ -45,6 +47,7 @@ function HeroLink({ href, children, className = "" }) {
 
 export default function Hero() {
   const ref = useRef(null);
+  const [contactOpen, setContactOpen] = useState(false);
   useGSAP(intro, { scope: ref });
 
   return (
@@ -55,7 +58,7 @@ export default function Hero() {
       <div className="hero-image-wrap absolute inset-0 pointer-events-none">
         <img
           src="/assets/images/hero3.webp"
-          alt={`${BRAND} private residence`}
+          alt="Contemporary private residence"
           className="hero-image h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-black/35 " />
@@ -69,18 +72,20 @@ export default function Hero() {
             data-reveal-01
             className="hero-title-line font-serif text-[clamp(2.75rem,12vw,4.5rem)] leading-[94%] text-white md:text-[5rem] lg:text-[5.64rem] lm:text-[2.25rem]"
           >
-            Space,
-            <br />
-            Considered.
+            {BRAND}
           </h1>
           <div
             className="hero-actions mt-4 flex flex-col gap-0 sm:flex-row sm:flex-wrap sm:gap-5 lm:mt-2 lm:flex-row lm:gap-5"
           >
-            <HeroLink href="#marquee-transition" className="pointer-events-auto">
-              Explore Residence
-            </HeroLink>
-            <HeroLink href="#residence-02-tour" className="cursor-pointer">
-              Experience the Space
+            <HeroLink
+              href="#contact"
+              className="pointer-events-auto"
+              onClick={(e) => {
+                e.preventDefault();
+                setContactOpen(true);
+              }}
+            >
+              Start a project
             </HeroLink>
           </div>
         </div>
@@ -91,7 +96,7 @@ export default function Hero() {
           <div
             className="hero-meta-inner grid w-full grid-cols-2 gap-x-6 gap-y-1 md:flex md:items-end md:justify-between md:gap-0 lg:flex lg:items-end lg:justify-between lm:flex lm:items-end lm:justify-between lm:gap-0"
           >
-            {["Featured Residence", "Private Residence", "2026", "Explore"].map(
+            {["Architecture", "Planning", "Engineering", "Dubai"].map(
               (label) => (
                 <Meta key={label}>{label}</Meta>
               ),
@@ -107,12 +112,12 @@ export default function Hero() {
               data-reveal-01="chars"
               className="text-sm text-white leading-[120%] md:text-base lg:text-lg lm:text-xs"
             >
-              A residence is more than its form. <br />
-              It is how light moves through it.
+              {TAGLINE}
             </p>
           </div>
         </div>
       </div>
+      <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
     </section>
   );
 }

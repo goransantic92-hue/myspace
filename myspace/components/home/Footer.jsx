@@ -6,7 +6,18 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import ContactModal from "@/components/layout/ContactModal";
-import { BRAND_TITLE, SOCIAL_LINKS } from "@/lib/brand";
+import Logo from "@/components/layout/Logo";
+import {
+  ADDRESS,
+  BRAND_TITLE,
+  CONTACT_EMAIL,
+  CONTACT_PHONE,
+  CONTACT_PHONE_ALT,
+  HOURS,
+  LOCATIONS,
+  SOCIAL_LINKS,
+  telHref,
+} from "@/lib/brand";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -15,6 +26,14 @@ const linkClass =
 const headingClass =
   "footer-reveal text-xs uppercase tracking-[0.12em] text-[#2A2725]/65 lm:text-[10px]";
 const ruleClass = "footer-rule my-8 h-px origin-left scale-x-0 bg-[#2A2725]/20 md:my-16 lm:my-3";
+
+function FooterText({ children }) {
+  return (
+    <div className="overflow-hidden">
+      <p className="footer-reveal block py-1 lg:py-0 lm:py-0.5">{children}</p>
+    </div>
+  );
+}
 
 function FooterLink({ label, href }) {
   const external = href.startsWith("http");
@@ -80,12 +99,12 @@ export default function Footer() {
         <div className="footer-frame flex flex-1 flex-col justify-between rounded-[20px] border border-[#2A2725]/20 px-5 py-6 md:rounded-[30px] md:px-10 md:py-10 lg:block lm:rounded-[20px] lm:px-5 lm:py-3">
           <div className="flex items-start justify-between gap-8 text-xs uppercase tracking-[0.12em] md:text-sm lm:text-xs">
             <div className="overflow-hidden">
-              <Link href="/" className="footer-reveal block font-semibold tracking-[0.08em]">
-                {BRAND_TITLE}
+              <Link href="/" aria-label={`${BRAND_TITLE} home`} className="footer-reveal block text-lg md:text-xl lm:text-base">
+                <Logo />
               </Link>
             </div>
             <div className="hidden overflow-hidden md:block">
-              <span className="footer-reveal block text-right">Space, considered.</span>
+              <span className="footer-reveal block text-right">Architectural Consultancy, Dubai</span>
             </div>
           </div>
           <div className={ruleClass} />
@@ -94,40 +113,35 @@ export default function Footer() {
             <div>
               <div className="overflow-hidden">
                 <h2 className="footer-reveal max-w-[12ch] font-serif text-[clamp(3rem,13vw,7rem)] leading-[0.88] tracking-[-0.03em] lg:text-[clamp(2.75rem,8vw,7rem)] lm:text-[2.5rem]">
-                  Space, considered.
+                  Architecture, planning, engineering.
                 </h2>
               </div>
               <div className="overflow-hidden">
                 <p className="footer-reveal mt-6 max-w-xl text-lg leading-[1.2] md:text-xl lm:mt-2 lm:text-sm">
-                  Residences shaped by architecture, light, and material.
+                  Private residences across Dubai: {LOCATIONS.join(", ")}.
                 </p>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-8 text-sm md:gap-12 lg:min-w-[360px] lg:gap-20 lg:text-base lm:min-w-[260px] lm:gap-10 lm:text-xs">
               <div className="flex flex-col gap-4 lm:gap-1">
                 <div className="overflow-hidden">
-                  <p className={headingClass}>Explore</p>
+                  <p className={headingClass}>Office</p>
                 </div>
-                <FooterLink label="Residence 01" href="#residence-slides" />
-                <FooterLink label="Residence 02" href="#residence-02" />
+                <FooterText>{BRAND_TITLE}</FooterText>
+                {ADDRESS.split(", ").map((line) => (
+                  <FooterText key={line}>{line}</FooterText>
+                ))}
               </div>
               <div className="flex flex-col gap-4 lm:gap-1">
                 <div className="overflow-hidden">
-                  <p className={headingClass}>Follow</p>
+                  <p className={headingClass}>Contact</p>
                 </div>
+                <FooterLink label={CONTACT_PHONE} href={telHref(CONTACT_PHONE)} />
+                <FooterLink label={CONTACT_PHONE_ALT} href={telHref(CONTACT_PHONE_ALT)} />
+                <FooterLink label={CONTACT_EMAIL} href={`mailto:${CONTACT_EMAIL}`} />
                 {SOCIAL_LINKS.map((link) => (
                   <FooterLink key={link.label} {...link} />
                 ))}
-                <div className="overflow-hidden">
-                  <button
-                    type="button"
-                    data-hover-reveal
-                    onClick={() => setContactOpen(true)}
-                    className="footer-reveal block py-1 text-left transition-opacity hover:opacity-60 lg:py-0 lm:py-0.5"
-                  >
-                    Contact
-                  </button>
-                </div>
               </div>
             </div>
           </div>
@@ -140,7 +154,7 @@ export default function Footer() {
               </div>
               <div className="overflow-hidden">
                 <p className="footer-reveal text-[10px] tracking-[0.12em] text-[#2A2725]/55 md:text-[11px] lm:text-[9px]">
-                  Private stays and viewings by appointment
+                  {HOURS}
                 </p>
               </div>
             </div>
@@ -160,7 +174,7 @@ export default function Footer() {
                     className="relative inline-flex h-2 w-2 rounded-full bg-[#3FA85B]"
                   />
                 </span>
-                <span data-hover-reveal>Now booking</span>
+                <span data-hover-reveal>Project enquiry</span>
               </button>
             </div>
             <div className="overflow-hidden">

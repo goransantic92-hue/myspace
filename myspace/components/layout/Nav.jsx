@@ -5,14 +5,14 @@ import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ContactModal from "./ContactModal";
+import Logo from "./Logo";
 import { BRAND } from "@/lib/brand";
 
 gsap.registerPlugin(useGSAP);
 
 const LINKS = [
+  { label: "Studio", href: "#about" },
   { label: "Residence", href: "#marquee-transition" },
-  { label: "Stays", href: "#residence-02" },
-  { label: "Tour", href: "/tour" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -108,8 +108,8 @@ export default function Nav() {
         className="fixed left-0 top-0 z-50 w-full px-6 py-4 text-white mix-blend-difference md:px-10"
       >
         <div className="flex items-start justify-between">
-          <a href="/" className="text-xl font-medium leading-none">
-            {BRAND}
+          <a href="/" aria-label={`${BRAND} home`} className="text-xl font-medium leading-none">
+            <Logo />
           </a>
           <div
             ref={menuWrapRef}

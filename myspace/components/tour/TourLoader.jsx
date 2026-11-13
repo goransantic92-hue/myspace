@@ -3,16 +3,16 @@
 import { Component, useCallback, useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { useProgress } from "@react-three/drei";
-import { BRAND } from "@/lib/brand";
+import Logo from "@/components/layout/Logo";
 
 function Header({ children }) {
   return (
     <div className="flex items-end justify-between gap-4 px-5 md:px-8">
       <span className="shrink-0 font-sans text-[clamp(1.5rem,2.5vw,2.75rem)] font-medium leading-none tracking-[-0.055em]">
-        {BRAND}
+        <Logo />
       </span>
       <span className="ml-auto text-right font-sans text-[clamp(0.75rem,1.5vw,1rem)] font-normal uppercase leading-tight tracking-[0.12em] text-[#EDE6D6]/70">
-        Private Residence Tour
+        Private residence
       </span>
       {children}
     </div>
@@ -137,7 +137,7 @@ export default function TourLoader({ ready = false }) {
         <div className="mt-6 flex items-center justify-between gap-4 px-5 md:px-8">
           <p className="text-[10px] uppercase tracking-[0.2em] text-[#EDE6D6]/60">{status}</p>
           <span className="hidden text-[9px] uppercase tracking-[0.18em] text-[#EDE6D6]/40 sm:block">
-            ARCHITECTURE · INTERIORS · DETAILS
+            ARCHITECTURE · PLANNING · ENGINEERING
           </span>
         </div>
         {failed && (
