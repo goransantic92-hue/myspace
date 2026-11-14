@@ -65,38 +65,18 @@ export default function Hero() {
       </div>
 
       <div className="hero-content pointer-events-auto absolute inset-0 z-10">
-        <div
-          className="absolute left-6 top-[16%] md:left-10 lg:left-10 lg:top-[7%] lm:top-[18%]"
+        <h1
+          data-reveal-01
+          className="hero-title-line pointer-events-none absolute inset-x-0 top-1/2 z-0 -translate-y-[calc(100%+5.25rem)] text-center font-serif text-[clamp(7rem,28vw,16.9rem)] leading-none tracking-[-0.045em] whitespace-nowrap text-white/35 lm:text-[6.75rem]"
         >
-          <h1
-            data-reveal-01
-            className="hero-title-line font-serif text-[clamp(2.75rem,12vw,4.5rem)] leading-[94%] text-white md:text-[5rem] lg:text-[5.64rem] lm:text-[2.25rem]"
-          >
-            {BRAND}
-          </h1>
-          <div
-            className="hero-actions mt-4 flex flex-col gap-0 sm:flex-row sm:flex-wrap sm:gap-5 lm:mt-2 lm:flex-row lm:gap-5"
-          >
-            <HeroLink
-              href="#contact"
-              className="pointer-events-auto"
-              onClick={(e) => {
-                e.preventDefault();
-                setContactOpen(true);
-              }}
-            >
-              Start a project
-            </HeroLink>
-          </div>
-        </div>
+          {BRAND}
+        </h1>
 
-        <div
-          className="hero-meta pointer-events-none absolute bottom-[13%] left-0 right-0 lg:inset-0 lg:flex lg:items-center lm:bottom-14"
-        >
+        <div className="hero-meta pointer-events-none absolute inset-0 z-10 flex flex-col items-center justify-center">
           <div className="hero-meta-inner relative w-full">
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute -inset-y-4 inset-x-0 bg-black/25 backdrop-blur-md [mask-image:linear-gradient(to_bottom,transparent,#000_28%,#000_72%,transparent)]"
+              className="pointer-events-none absolute -inset-y-4 inset-x-0 bg-black/25 backdrop-blur-[3px] [mask-image:linear-gradient(to_bottom,transparent,#000_28%,#000_72%,transparent)]"
             />
             <div className="relative z-10 grid w-full grid-cols-2 gap-x-6 gap-y-1 px-6 md:flex md:items-end md:justify-between md:gap-0 md:px-10 lg:flex lg:items-end lg:justify-between lg:px-10 lm:flex lm:items-end lm:justify-between lm:gap-0">
               {["Architecture", "Planning", "Engineering", "Dubai"].map(
@@ -105,6 +85,17 @@ export default function Hero() {
                 ),
               )}
             </div>
+          </div>
+          <div className="hero-actions pointer-events-auto mt-8 flex justify-center lm:mt-4">
+            <HeroLink
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                setContactOpen(true);
+              }}
+            >
+              Start a project
+            </HeroLink>
           </div>
         </div>
 
