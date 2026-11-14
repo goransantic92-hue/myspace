@@ -114,7 +114,7 @@ export default function MarqueeTransition() {
           </div>
         </div>
         <InkDissolveOverlay image="/assets/images/hero5.webp" progressRef={inkProgress} />
-        <div className="marquee-prompt absolute bottom-8 left-1/2 z-30 -translate-x-1/2 text-[10px] uppercase tracking-[0.2em] text-black/55">
+        <div className="marquee-prompt absolute bottom-14 left-1/2 z-30 -translate-x-1/2 text-[10px] uppercase tracking-[0.2em] text-black/55 lg:bottom-8">
           Scroll to enter
         </div>
         <VillaExplorer

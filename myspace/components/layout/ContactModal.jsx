@@ -19,22 +19,8 @@ import {
   SOCIAL_ICONS,
 } from "./icons";
 
-const INQUIRIES = [
-  {
-    key: "architecture",
-    label: "Architecture",
-    title: "Start a project",
-    note: "Site, brief, budget",
-    subject: ENQUIRY_SUBJECT,
-  },
-  {
-    key: "consultancy",
-    label: "Planning & engineering",
-    title: "Ask about consultancy",
-    note: "Scope and questions",
-    subject: ENQUIRY_SUBJECT,
-  },
-];
+const fieldClass =
+  "w-full rounded-xl border border-[#EDE6D6]/25 bg-transparent px-4 py-3 text-base normal-case tracking-normal text-[#EDE6D6] outline-none transition-colors placeholder:text-[#EDE6D6]/35 focus:border-[#EDE6D6]/70";
 
 function SocialLink({ label, href }) {
   const Icon = SOCIAL_ICONS[label];
@@ -55,32 +41,51 @@ function SocialLink({ label, href }) {
   );
 }
 
-function InquiryCard({ label, title, note, subject }) {
+function EnquiryForm() {
+  const send = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const body = [
+      `Name: ${data.get("name")}`,
+      `Email: ${data.get("email")}`,
+      `Phone: ${data.get("phone") || "—"}`,
+      "",
+      String(data.get("message") || ""),
+    ].join("\n");
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(ENQUIRY_SUBJECT)}&body=${encodeURIComponent(body)}`;
+  };
+
   return (
-    <a
-      href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}`}
-      className="cx-fade group relative flex items-center justify-between gap-4 overflow-hidden rounded-2xl border border-[#EDE6D6]/20 bg-[#EDE6D6]/[0.04] px-5 py-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#EDE6D6] md:rounded-3xl md:px-6 md:py-5 [@media(orientation:landscape)_and_(max-height:500px)]:px-4 [@media(orientation:landscape)_and_(max-height:500px)]:py-2.5"
-    >
-      <span
-        aria-hidden="true"
-        className="absolute inset-0 origin-bottom scale-y-0 bg-[#EDE6D6] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-y-100 group-focus-visible:scale-y-100"
-      />
-      <span className="relative z-10 flex flex-col gap-1 transition-colors duration-500 group-hover:text-[#2A2725] group-focus-visible:text-[#2A2725]">
-        <span className="text-xs opacity-60">
-          {label} · {note}
-        </span>
-        <span className="font-serif text-[clamp(1.35rem,min(2.6vw,4vh),2rem)] leading-tight tracking-[-0.02em]">
-          {title}
-        </span>
-      </span>
-      <span className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-current/30 transition-colors duration-500 group-hover:text-[#2A2725] group-focus-visible:text-[#2A2725]">
-        <ArrowUpRightIcon
-          aria-hidden="true"
-          size={18}
-          className="transition-transform duration-500 group-hover:rotate-45"
+    <form onSubmit={send} className="cx-fade flex flex-col gap-3">
+      <label className="flex flex-col gap-1.5 text-[11px] uppercase tracking-[0.14em] text-[#EDE6D6]/55">
+        Name
+        <input required name="name" autoComplete="name" className={fieldClass} />
+      </label>
+      <label className="flex flex-col gap-1.5 text-[11px] uppercase tracking-[0.14em] text-[#EDE6D6]/55">
+        Email
+        <input required type="email" name="email" autoComplete="email" className={fieldClass} />
+      </label>
+      <label className="flex flex-col gap-1.5 text-[11px] uppercase tracking-[0.14em] text-[#EDE6D6]/55">
+        Phone
+        <input type="tel" name="phone" autoComplete="tel" className={fieldClass} />
+      </label>
+      <label className="flex flex-col gap-1.5 text-[11px] uppercase tracking-[0.14em] text-[#EDE6D6]/55">
+        Project
+        <textarea
+          required
+          name="message"
+          rows={3}
+          placeholder="Site, brief, budget"
+          className={`${fieldClass} min-h-20 resize-none`}
         />
-      </span>
-    </a>
+      </label>
+      <button
+        type="submit"
+        className="mt-1 rounded-full bg-[#EDE6D6] px-5 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-[#2A2725] transition-opacity hover:opacity-85"
+      >
+        Send enquiry
+      </button>
+    </form>
   );
 }
 
@@ -179,7 +184,7 @@ export default function ContactModal({ open, onClose }) {
       }
       if (e.key !== "Tab" || !rootRef.current) return;
       const focusable = rootRef.current.querySelectorAll(
-        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
       );
       if (!focusable.length) return;
       const first = focusable[0];
@@ -225,7 +230,7 @@ export default function ContactModal({ open, onClose }) {
   return createPortal(
     <div
       ref={rootRef}
-      className="fixed inset-0 z-[999] h-[100svh] overflow-hidden bg-[#2A2725] text-[#EDE6D6] [@media(orientation:landscape)_and_(max-height:500px)]:overflow-y-auto [@media(orientation:landscape)_and_(max-height:500px)]:overscroll-contain"
+      className="fixed inset-0 z-[999] h-[100svh] overflow-y-auto overscroll-contain bg-[#2A2725] text-[#EDE6D6]"
       style={{ clipPath: "inset(100% 0 0 0)" }}
       role="dialog"
       aria-modal="true"
@@ -236,7 +241,7 @@ export default function ContactModal({ open, onClose }) {
         aria-hidden="true"
         className="pointer-events-none absolute -right-40 -top-40 h-[480px] w-[480px] rounded-full bg-[#EDE6D6]/[0.06] blur-3xl"
       />
-      <div className="cx-content relative mx-auto flex h-full w-full max-w-[1280px] flex-col px-5 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4 md:px-10 md:pb-6 [@media(orientation:landscape)_and_(max-height:500px)]:h-auto [@media(orientation:landscape)_and_(max-height:500px)]:min-h-full [@media(orientation:landscape)_and_(max-height:500px)]:pt-2 [@media(orientation:landscape)_and_(max-height:500px)]:pb-[max(0.5rem,env(safe-area-inset-bottom))] [@media(orientation:landscape)_and_(max-height:500px)]:pl-[max(1.25rem,env(safe-area-inset-left))] [@media(orientation:landscape)_and_(max-height:500px)]:pr-[max(1.25rem,env(safe-area-inset-right))]">
+      <div className="cx-content relative mx-auto flex h-auto min-h-full w-full max-w-[1280px] flex-col px-5 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4 md:px-10 md:pb-6 [@media(orientation:landscape)_and_(max-height:500px)]:pt-2 [@media(orientation:landscape)_and_(max-height:500px)]:pb-[max(0.5rem,env(safe-area-inset-bottom))] [@media(orientation:landscape)_and_(max-height:500px)]:pl-[max(1.25rem,env(safe-area-inset-left))] [@media(orientation:landscape)_and_(max-height:500px)]:pr-[max(1.25rem,env(safe-area-inset-right))]">
         <div className="flex items-center justify-between">
           <span className="cx-fade text-lg font-medium leading-none">
             <Logo className="h-10 w-auto" />
@@ -314,11 +319,7 @@ export default function ContactModal({ open, onClose }) {
               </button>
             </div>
           </div>
-          <div className="flex flex-col gap-3 [@media(orientation:landscape)_and_(max-height:500px)]:gap-2">
-            {INQUIRIES.map((item) => (
-              <InquiryCard key={item.key} {...item} />
-            ))}
-          </div>
+          <EnquiryForm />
         </main>
 
         <div>

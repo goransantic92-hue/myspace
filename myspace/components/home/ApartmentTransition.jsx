@@ -88,7 +88,7 @@ export default function ApartmentTransition() {
           className="ap-transition-cloud absolute left-0 top-[20%] h-auto w-full max-w-none opacity-0 lg:top-[8%]"
         />
       </div>
-      <div className="sticky top-0 z-40 flex h-[100svh] w-full items-center justify-center px-6 lg:h-screen">
+      <div className="sticky top-0 z-40 flex h-[100svh] w-full items-center justify-center px-6 pb-16 lg:h-screen lg:pb-0">
         <div className="ap-transition-copy flex flex-col items-center text-center opacity-0">
           <p className="mb-4 text-[10px] uppercase tracking-[0.24em] lg:mb-5 lg:text-xs">
             A private residence
@@ -99,7 +99,7 @@ export default function ApartmentTransition() {
             data-scroll
             data-duration="1"
             data-stagger="0.02"
-            className="ap-transition-heading max-w-[15ch] font-serif text-[clamp(2.25rem,9vw,8rem)] leading-[94%]"
+            className="ap-transition-heading max-w-[12ch] font-serif text-[clamp(2rem,8vw,3.5rem)] leading-[96%] lg:max-w-[15ch] lg:text-[clamp(2.25rem,9vw,8rem)] lg:leading-[94%]"
           >
             Not every space
             <br />

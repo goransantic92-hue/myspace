@@ -47,7 +47,7 @@ const SWIPER_SIDE = {
 };
 
 const counterDot =
-  "flex h-12 w-12 items-center justify-center rounded-full border border-current md:h-14 md:w-14 lm:h-9 lm:w-9";
+  "flex h-9 w-9 items-center justify-center rounded-full border border-current text-xs md:h-11 md:w-11 lg:h-14 lg:w-14 lg:text-sm lm:h-9 lm:w-9";
 
 function parts(slide) {
   return {
@@ -172,7 +172,7 @@ export default function ResidenceSlides() {
       id="residence-slides"
       className="relative z-20 w-full text-[#2A2725] bg-[#EDE6D6]"
     >
-      <div className="rs-stage relative h-screen w-full overflow-hidden p-3 md:p-5 lg:p-8 lm:p-3">
+      <div className="rs-stage relative h-[100svh] w-full overflow-hidden p-3 pb-10 md:p-5 lg:h-screen lg:p-8 lm:h-screen lm:p-3">
         <div className="relative h-full w-full">
           {SLIDES.map((slide, i) => (
             <div
@@ -181,10 +181,10 @@ export default function ResidenceSlides() {
               style={{ zIndex: i + 1 }}
             >
               <div
-                className={`rs-text pointer-events-auto relative flex flex-col justify-between overflow-hidden rounded-[28px] p-5 md:rounded-[36px] md:p-8 lg:p-10 lm:rounded-[20px] lm:p-4 ${TEXT_COL[slide.imageSide]}`}
+                className={`rs-text pointer-events-auto relative flex flex-col justify-between overflow-hidden rounded-[28px] px-5 pb-5 pt-16 md:rounded-[36px] md:p-8 lg:p-10 lm:rounded-[20px] lm:p-4 ${TEXT_COL[slide.imageSide]}`}
                 style={{ backgroundColor: slide.bg, color: slide.fg }}
               >
-                <h2 className="font-sans text-[clamp(2rem,8vw,3.75rem)] leading-[0.95] tracking-[-0.04em] lg:text-[4.4vw] lm:text-[3.4vw]">
+                <h2 className="font-sans text-[clamp(1.7rem,8vw,2.4rem)] leading-[0.98] tracking-[-0.04em] md:text-[clamp(2rem,8vw,3.75rem)] lg:text-[4.4vw] lm:text-[3.4vw]">
                   {slide.lines.map((line) => (
                     <span
                       key={line}
@@ -194,7 +194,7 @@ export default function ResidenceSlides() {
                     </span>
                   ))}
                 </h2>
-                <div className="flex items-end justify-between gap-6 lm:gap-3">
+                <div className="mt-4 flex flex-col-reverse items-start gap-4 lg:mt-0 lg:flex-row lg:items-end lg:justify-between lg:gap-6 lm:mt-0 lm:flex-row lm:items-end lm:gap-3">
                   <div
                     className="rs-counter flex shrink-0 -space-x-px text-sm lm:text-xs"
                     aria-label={`Slide ${i + 1} of ${SLIDES.length}`}
@@ -202,7 +202,7 @@ export default function ResidenceSlides() {
                     <span className={counterDot}>{pad(i + 1)}</span>
                     <span className={`${counterDot} opacity-40`}>{pad(SLIDES.length)}</span>
                   </div>
-                  <p className="rs-copy max-w-[44rem] text-2xl leading-[1.4] tracking-[-0.01em] md:text-[2rem] lm:max-w-[28rem] lm:text-[20px]">
+                  <p className="rs-copy max-w-[36rem] text-sm leading-snug tracking-[-0.01em] md:text-base lg:text-2xl lg:leading-[1.4] lm:max-w-[28rem] lm:text-[15px] lm:leading-snug">
                     {slide.copy}
                   </p>
                 </div>

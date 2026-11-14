@@ -25,7 +25,7 @@ const linkClass =
   "footer-reveal block py-1 transition-opacity hover:opacity-60 lg:py-0 lm:py-0.5";
 const headingClass =
   "footer-reveal text-xs uppercase tracking-[0.12em] text-[#2A2725]/65 lm:text-[10px]";
-const ruleClass = "footer-rule my-8 h-px origin-left scale-x-0 bg-[#2A2725]/20 md:my-16 lm:my-3";
+const ruleClass = "footer-rule my-5 h-px origin-left scale-x-0 bg-[#2A2725]/20 md:my-8 lg:my-16 lm:my-3";
 
 function FooterText({ children }) {
   return (
@@ -94,7 +94,7 @@ export default function Footer() {
       <footer
         ref={ref}
         id="contact"
-        className="relative z-30 flex min-h-[100svh] w-full flex-col bg-[#EDE6D6] px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4 text-[#2A2725] md:px-10 md:py-6 lg:block lg:h-screen lg:py-16 lm:px-4 lm:pb-3 lm:pt-3"
+        className="relative z-30 flex min-h-[100svh] w-full flex-col bg-[#EDE6D6] px-4 pb-[max(2.75rem,env(safe-area-inset-bottom))] pt-20 text-[#2A2725] md:px-10 lg:block lg:h-screen lg:py-16 lm:px-4 lm:pb-10 lm:pt-14"
       >
         <div className="footer-frame flex flex-1 flex-col justify-between rounded-[20px] border border-[#2A2725]/20 px-5 py-6 md:rounded-[30px] md:px-10 md:py-10 lg:block lm:rounded-[20px] lm:px-5 lm:py-3">
           <div className="flex items-start justify-between gap-8 text-xs uppercase tracking-[0.12em] md:text-sm lm:text-xs">
@@ -112,12 +112,12 @@ export default function Footer() {
           <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:gap-16 lm:grid-cols-[1fr_auto] lm:gap-8">
             <div>
               <div className="overflow-hidden">
-                <h2 className="footer-reveal max-w-[12ch] font-serif text-[clamp(3rem,13vw,7rem)] leading-[0.88] tracking-[-0.03em] lg:text-[clamp(2.75rem,8vw,7rem)] lm:text-[2.5rem]">
+                <h2 className="footer-reveal max-w-[12ch] font-serif text-[clamp(2.15rem,9vw,3.25rem)] leading-[0.9] tracking-[-0.03em] lg:text-[clamp(2.75rem,8vw,7rem)] lm:text-[2rem]">
                   Architecture, planning, engineering.
                 </h2>
               </div>
               <div className="overflow-hidden">
-                <p className="footer-reveal mt-6 max-w-xl text-lg leading-[1.2] md:text-xl lm:mt-2 lm:text-sm">
+                <p className="footer-reveal mt-4 max-w-xl text-base leading-snug md:text-lg lg:mt-6 lg:text-xl lm:mt-2 lm:text-sm">
                   Private residences across Dubai: {LOCATIONS.join(", ")}.
                 </p>
               </div>

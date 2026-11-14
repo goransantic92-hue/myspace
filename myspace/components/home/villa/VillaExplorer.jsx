@@ -248,7 +248,7 @@ export default function VillaExplorer({
 
       <div
         ref={hudRef}
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/60 via-black/25 to-transparent px-6 pb-6 pt-20 text-white lg:px-10 lg:pb-8 lg:pt-28"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/60 via-black/25 to-transparent px-6 pb-16 pt-16 text-white lg:px-10 lg:pb-8 lg:pt-28"
       >
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between sm:gap-6">
           <div className="min-w-0 pr-10 lg:pr-0" role="status" aria-live="polite">

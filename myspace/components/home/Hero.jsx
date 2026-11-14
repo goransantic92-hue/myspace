@@ -67,7 +67,7 @@ export default function Hero() {
       <div className="hero-content pointer-events-auto absolute inset-0 z-10">
         <h1
           data-reveal-01
-          className="hero-title-line pointer-events-none absolute inset-x-0 top-1/2 z-0 -translate-y-[calc(100%+5.25rem)] text-center font-serif text-[clamp(7rem,28vw,16.9rem)] leading-none tracking-[-0.045em] whitespace-nowrap text-white/35 lm:text-[6.75rem]"
+          className="hero-title-line pointer-events-none absolute inset-x-0 top-1/2 z-0 -translate-y-[calc(100%+4.25rem)] text-center font-serif text-[clamp(3.4rem,16vw,6rem)] leading-none tracking-[-0.045em] whitespace-nowrap text-white/80 md:-translate-y-[calc(100%+5.25rem)] md:text-[clamp(7rem,28vw,16.9rem)] md:text-white/35 lm:-translate-y-[calc(100%+4.5rem)] lm:text-[6.75rem] lm:text-white/35"
         >
           {BRAND}
         </h1>
@@ -78,7 +78,7 @@ export default function Hero() {
               aria-hidden="true"
               className="pointer-events-none absolute -inset-y-4 inset-x-0 bg-black/25 backdrop-blur-[3px] [mask-image:linear-gradient(to_bottom,transparent,#000_28%,#000_72%,transparent)]"
             />
-            <div className="relative z-10 grid w-full grid-cols-2 gap-x-6 gap-y-1 px-6 md:flex md:items-end md:justify-between md:gap-0 md:px-10 lg:flex lg:items-end lg:justify-between lg:px-10 lm:flex lm:items-end lm:justify-between lm:gap-0">
+            <div className="relative z-10 grid w-full grid-cols-2 justify-items-center gap-x-4 gap-y-2 px-6 text-center md:flex md:items-end md:justify-between md:gap-0 md:px-10 md:text-left lg:px-10 lm:flex lm:items-end lm:justify-between lm:gap-0 lm:text-left">
               {["Architecture", "Planning", "Engineering", "Dubai"].map(
                 (label) => (
                   <Meta key={label}>{label}</Meta>
@@ -100,7 +100,7 @@ export default function Hero() {
         </div>
 
         <div
-          className="hero-bottom absolute bottom-6 w-full px-6 text-center md:bottom-7 lm:bottom-3"
+          className="hero-bottom absolute bottom-12 w-full px-6 text-center md:bottom-12 lm:bottom-10"
         >
           <div className="hero-bottom-inner">
             <p

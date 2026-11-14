@@ -105,7 +105,7 @@ export default function Nav() {
     <>
       <nav
         ref={navRef}
-        className="fixed left-0 top-0 z-50 w-full px-6 py-4 text-white mix-blend-difference md:px-10"
+        className="fixed left-0 top-0 z-50 w-full bg-gradient-to-b from-black/70 via-black/35 to-transparent px-6 py-4 text-white md:bg-transparent md:mix-blend-difference md:px-10"
       >
         <div className="flex items-center justify-between">
           <a href="/" aria-label={`${BRAND} home`} className="text-xl font-medium leading-none">

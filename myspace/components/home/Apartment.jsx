@@ -63,11 +63,11 @@ const LAYOUTS = {
   },
   mobile: {
     hero: { left: 0, top: 0, width: 100, height: 100, borderRadius: 0, opacity: 1 },
-    main: { left: 4, top: 3, width: 92, height: 50, borderRadius: 28, opacity: 1 },
-    prev: { left: 4, top: 84, width: 22, height: 12, ...thumb, opacity: 1 },
-    next: { left: 74, top: 84, width: 22, height: 12, ...thumb, opacity: 1 },
-    out: { left: 4, top: 84, width: 22, height: 12, ...thumb, opacity: 0 },
-    wait: { left: 74, top: 84, width: 22, height: 12, ...thumb, opacity: 0 },
+    main: { left: 4, top: 9, width: 92, height: 44, borderRadius: 28, opacity: 1 },
+    prev: { left: 6, top: 42, width: 20, height: 9, ...thumb, opacity: 1 },
+    next: { left: 74, top: 42, width: 20, height: 9, ...thumb, opacity: 1 },
+    out: { left: 6, top: 42, width: 20, height: 9, ...thumb, opacity: 0 },
+    wait: { left: 74, top: 42, width: 20, height: 9, ...thumb, opacity: 0 },
   },
 };
 
@@ -314,7 +314,7 @@ export default function Apartment() {
             className="ap-hero-scrim pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[48%] bg-gradient-to-t from-black/60 via-black/30 to-transparent"
           />
 
-          <div className="absolute inset-x-0 bottom-0 z-20 flex flex-col gap-4 p-6 text-white md:p-8 lg:gap-5 lg:p-12 lm:gap-2 lm:p-6">
+          <div className="absolute inset-x-0 bottom-0 z-20 flex flex-col gap-4 px-6 pb-14 pt-6 text-white md:p-8 lg:gap-5 lg:p-12 lm:gap-2 lm:px-6 lm:pb-12 lm:pt-4">
             <Mask>
               <p className="ap-hero-piece text-[10px] uppercase tracking-[0.2em]">A private residence</p>
             </Mask>
@@ -327,16 +327,16 @@ export default function Apartment() {
             </h2>
           </div>
 
-          <div className="absolute bottom-[16%] left-[6%] right-[6%] top-[56%] lg:bottom-[24%] lg:left-[74%] lg:right-[3%] lg:top-[18%] lm:bottom-[14%] lm:left-[73%] lm:right-[3%] lm:top-[12%]">
+          <div className="absolute bottom-[10%] left-5 right-5 top-[56%] z-20 lg:bottom-[24%] lg:left-[74%] lg:right-[3%] lg:top-[18%] lm:bottom-[14%] lm:left-[73%] lm:right-[3%] lm:top-[12%]">
             {ROOMS.map((room) => (
               <div
                 key={room.eyebrow}
-                className="ap-text absolute inset-0 flex flex-col justify-center gap-4 lg:gap-6 lm:gap-3"
+                className="ap-text absolute inset-0 flex flex-col justify-start gap-2.5 lg:justify-center lg:gap-6 lm:justify-center lm:gap-3"
               >
                 <Mask>
                   <p className="ap-piece text-xs uppercase tracking-[0.16em] lg:text-sm">{room.eyebrow}</p>
                 </Mask>
-                <h2 className="font-sans text-[clamp(2.15rem,7.5vw,3.4rem)] leading-[0.96] tracking-[-0.04em] lg:text-[3.6vw] lm:text-[3.2vw]">
+                <h2 className="font-sans text-[1.65rem] leading-[1] tracking-[-0.04em] md:text-[clamp(2rem,5vw,3rem)] lg:text-[3.6vw] lg:leading-[0.96] lm:text-[3.2vw]">
                   {room.lines.map((line) => (
                     <Mask key={line}>
                       <span className="ap-piece block">{line}</span>
@@ -344,7 +344,7 @@ export default function Apartment() {
                   ))}
                 </h2>
                 <Mask>
-                  <p className="ap-piece max-w-[26rem] text-base leading-[1.45] tracking-[-0.01em] lg:text-lg lm:text-sm lm:leading-[1.4]">
+                  <p className="ap-piece max-w-[26rem] text-sm leading-snug tracking-[-0.01em] lg:text-lg lg:leading-[1.45] lm:text-sm lm:leading-[1.4]">
                     {room.copy}
                   </p>
                 </Mask>
